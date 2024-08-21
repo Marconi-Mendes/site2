@@ -3,18 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch YouTube Video</title>
+    <title>Video Watch Page</title>
     <link rel="stylesheet" href="styles.css">
-   
 </head>
 <body>
-    <div class="video-container">
-        <iframe id="youtube-video" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="container">
+        <!-- Main Video Section -->
+        <div class="main-video">
+            <iframe id="youtube-video" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h2 id="video-title">Video Title</h2>
+            <div id="video-details">Video details go here.</div>
+        </div>
+        
+        <!-- Suggested Videos Section -->
+        <div class="suggested-videos">
+            <h3>Next Videos</h3>
+            <ul id="suggested-list">
+                <!-- Example of suggested video item -->
+                <li>
+                    <a href="#">
+                        <img src="thumbnail1.jpg" alt="Video Thumbnail">
+                        <span>Suggested Video 1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="thumbnail2.jpg" alt="Video Thumbnail">
+                        <span>Suggested Video 2</span>
+                    </a>
+                </li>
+                <!-- More suggested videos -->
+            </ul>
+        </div>
     </div>
-    <div class="video-description">
-        <h2 id="video-title">Video Title</h2>
-        <p id="video-details">Video details go here.</p>
+    
+    <!-- Comments Section -->
+    <div class="comments-section">
+        <h3>Comments</h3>
+        <div id="comments-list">
+            <!-- Example of a comment -->
+            <div class="comment">
+                <p><strong>User 1:</strong> This is an awesome video!</p>
+            </div>
+            <div class="comment">
+                <p><strong>User 2:</strong> Great content, thanks for sharing!</p>
+            </div>
+            <!-- More comments -->
+        </div>
+        <!-- Add Comment Form -->
+        <form id="comment-form">
+            <textarea placeholder="Add a comment..." required></textarea>
+            <button type="submit">Comment</button>
+        </form>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
