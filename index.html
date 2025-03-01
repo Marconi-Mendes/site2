@@ -1,65 +1,60 @@
+<?php
+session_start();
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    // Redirecionar para página de login se não estiver autenticado
+    $_SESSION['error'] = "You need to log in to access this page.";
+    header("Location: ../index");
+    exit();
+}
+      
+include_once "../../connection/conect_db.php";
+
+// Estabelecer conexão com o banco de dados
+$conn = connectDatabase();
+
+$javascriptCode = '
+<script type="text/javascript">
+    const adOptions = `
+    atOptions = {
+        \'key\' : \'4c7c8e96f1e44ffea2379bfbeb041af3\',
+        \'format\' : \'iframe\',
+        \'height\' : 250,
+        \'width\' : 300,
+        \'params\' : {}
+    };
+    `;
+    eval(adOptions);
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/4c7c8e96f1e44ffea2379bfbeb041af3/invoke.js"></script>
+';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Watch Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css_views.css">
+    <title>Views Ads - Litecoin</title>
 </head>
 <body>
-    <div class="container">
-        <!-- Main Video Section -->
-        <div class="main-video">
-            <iframe id="youtube-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <h2 id="video-title">Rick Astley - Never Gonna Give You Up</h2>
-            <div id="video-details">Official music video for “Never Gonna Give You Up” by Rick Astley.</div>
-        </div>
-        
-        <!-- Suggested Videos Section -->
-        <div class="suggested-videos">
-            <h3>Next Videos</h3>
-            <ul id="suggested-list">
-                <li>
-                    <a href="https://www.youtube.com/watch?v=DLzxrzFCyOs">
-                        <img src="https://img.youtube.com/vi/DLzxrzFCyOs/0.jpg" alt="Video Thumbnail">
-                        <span>Rick Astley - Together Forever (Official Video)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/watch?v=ub82Xb1C8os">
-                        <img src="https://img.youtube.com/vi/ub82Xb1C8os/0.jpg" alt="Video Thumbnail">
-                        <span>A-ha - Take On Me (Official Video)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/watch?v=Iwuy4hHO3YQ">
-                        <img src="https://img.youtube.com/vi/Iwuy4hHO3YQ/0.jpg" alt="Video Thumbnail">
-                        <span>Men At Work - Down Under (Official Video)</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <div class="ad-container">
+
+        <?php echo $javascriptCode; ?>
+        <script type="text/javascript">
+	atOptions = {
+		'key' : '4c7c8e96f1e44ffea2379bfbeb041af3',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/4c7c8e96f1e44ffea2379bfbeb041af3/invoke.js"></script>
     </div>
     
-    <!-- Comments Section -->
-    <div class="comments-section">
-        <h3>Comments</h3>
-        <div id="comments-list">
-            <!-- Example of a comment -->
-            <div class="comment">
-                <p><strong>User 1:</strong> This song never gets old!</p>
-            </div>
-            <div class="comment">
-                <p><strong>User 2:</strong> Classic! Thanks for the nostalgia.</p>
-            </div>
-        </div>
-        <!-- Add Comment Form -->
-        <form id="comment-form">
-            <textarea placeholder="Add a comment..." required></textarea>
-            <button type="submit">Comment</button>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+    <?=$javascriptCode?>
 </body>
-</html>
